@@ -1,0 +1,10 @@
+[requires]
+icu/70.1
+xerces-c/3.2.3
+
+[generators]
+cmake_find_package
+
+[options]
+icu:shared=False
+xerces-c:shared=False
