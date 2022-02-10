@@ -59,9 +59,7 @@ set(CMAKE_PREFIX_PATH ${CMAKE_BINARY_DIR} ${CMAKE_PREFIX_PATH})
 include(${CMAKE_SOURCE_DIR}/cmake/dependencies.cmake)
 include(${CMAKE_SOURCE_DIR}/cmake/compiler_options.cmake)
 
-add_library( openE57 STATIC IMPORTED )
-set_target_properties( openE57 PROPERTIES IMPORTED_LOCATION ${CMAKE_BINARY_DIR}/openE57/lib/libopenE57.a )
-set(openE57_INCLUDE_DIRS ${CMAKE_BINARY_DIR}/openE57/include)
+find_package(openE57 REQUIRED )
 
 add_executable(demo-read ${CMAKE_SOURCE_DIR}/src/DemoRead01.cpp)
 set_target_properties(demo-read PROPERTIES 
@@ -72,8 +70,7 @@ target_include_directories(demo-read PRIVATE
   )
 target_link_libraries(demo-read 
   PRIVATE 
-    openE57
-    ${XML_LIBRARIES}
+    ${openE57_LIBRARIES}
     ${CMAKE_THREAD_LIBS_INIT}
 )
 

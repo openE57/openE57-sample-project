@@ -6,14 +6,13 @@ This is in **alpha** state and requires a refinement.
 
 ## How to run the example
 
-1. compile the `openE57` project following the instructions at https://github.com/openE57/openE57
-2. copy the resulting folder `build/redist-openE57-v1.x.x` to a new folder in this project and rename it to `openE57`: 
+1. Build the `openE57` conan package following the instructions at https://github.com/openE57/openE57
 
+2. Proceed with the following instructions:
 ```sh
 mkdir build
-cp -r ../open57/build/redist-openE57-v1.x.x build/openE57
+conan install .. --build=missing
+cmake .. -DCMAKE_BUILD_TYPE=Release
+cmake --build .
+cmake --install . 
 ```
-
-3. Run the command `conan install .. --build=missing`
-4. Run the command `cmake ..`
-5. Run the command `make`
