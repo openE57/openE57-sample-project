@@ -59,18 +59,18 @@ set(CMAKE_PREFIX_PATH ${CMAKE_BINARY_DIR} ${CMAKE_PREFIX_PATH})
 include(${CMAKE_SOURCE_DIR}/cmake/dependencies.cmake)
 include(${CMAKE_SOURCE_DIR}/cmake/compiler_options.cmake)
 
-find_package(openE57 REQUIRED )
+find_package(opene57 REQUIRED )
 
 add_executable(demo-read ${CMAKE_SOURCE_DIR}/src/DemoRead01.cpp)
 set_target_properties(demo-read PROPERTIES 
   DEBUG_POSTFIX "-d" 
   MSVC_RUNTIME_LIBRARY "${MSVC_RUNTIME_TYPE}")
 target_include_directories(demo-read PRIVATE 
-  ${openE57_INCLUDE_DIRS} 
+  ${opene57_INCLUDE_DIRS} 
   )
 target_link_libraries(demo-read 
   PRIVATE 
-    ${openE57_LIBRARIES}
+    ${opene57_LIBRARIES}
     ${CMAKE_THREAD_LIBS_INIT}
 )
 
